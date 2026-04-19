@@ -47,16 +47,45 @@ predictions per season, 60,294 total).
 
 | Metric | Value |
 |---|---|
-| Brier score | **0.2344** |
+| Brier score (see below) | **0.2344** |
 | Top-1 daily hit rate (baseline, always play top pick) | 73.3% |
 | Top-10 daily hit rate | 75.1% |
 | Best filtered strategy hit rate (Established hitter, slot 1–5, p ≥ 0.78) | **83.1%** |
 | Calibration within 3% of actual in | **9 of 10 deciles** |
 | Longest observed streak in 240-day window | 23 games |
 
-Brier scores across two independent seasons differed by only 0.0001,
-indicating the calibration generalizes rather than overfitting to a single
-year.
+### What's a Brier score?
+
+The Brier score is the standard way to measure how good a probability model
+is. It's the mean squared error between what the model predicted and what
+actually happened:
+
+```
+Brier = average of (predicted_probability − actual_outcome)²
+```
+
+where `actual_outcome` is 1 if the player got a hit and 0 if they didn't.
+**Lower is better.** Useful reference points:
+
+| Brier | What it means |
+|---|---|
+| 0.00 | Perfect model — every prediction matches reality exactly |
+| 0.25 | Coin-flip baseline — always predicting 0.5, regardless of anything |
+| 1.00 | Worst possible — always predicting the opposite of what happens |
+
+HitPicks scores **0.2344**, meaningfully better than the coin-flip baseline.
+That margin is modest because baseball hitting is fundamentally noisy
+(even the best hitters fail ~70% of the time at the per-PA level), so no
+model can get near 0. The more meaningful signal is that the Brier score
+is **almost identical across two independent seasons** (0.2345 in 2024,
+0.2344 in 2025 — a difference of 0.0001), meaning the calibration holds up
+year-over-year rather than being overfit to a single season.
+
+Brier has one more useful property: it decomposes cleanly into
+**calibration** (are your 80% picks hitting 80% of the time?) plus
+**resolution** (are you spreading your predictions across the probability
+range instead of hedging to the mean?). The calibration table below shows
+the calibration component directly.
 
 ---
 
