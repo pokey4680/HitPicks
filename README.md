@@ -378,7 +378,7 @@ bts cache clear                   # Delete everything and start over
    backtesting. Factors that don't earn their keep get disabled.
 
 4. **Actual probabilities, not arbitrary scores.** "79% chance of a hit" is
-   more actionable and verifiable than "Fulcrum Score: 74."
+   more actionable and verifiable than "BTS Score: 74."
 
 5. **Transparency.** The "Why" breakdown shows every factor that went into a
    prediction. If you disagree with a rank, you can see exactly what drove
