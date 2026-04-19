@@ -5,7 +5,7 @@
 HitPicks predicts which hitters are most likely to record at least one hit in
 today's games. It does this with a transparent, mathematically principled
 probability model — no weighted scoring, no black-box ML, no arbitrary
-"Fulcrum Score: 74." Every number traces back to real player performance, and
+"BTS Score: 74." Every number traces back to real player performance, and
 every factor has earned its place through empirical validation.
 
 Over 60,000 backtested predictions across the 2024 and 2025 seasons, the
