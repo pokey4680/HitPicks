@@ -1,0 +1,29 @@
+[project]
+name = "bts"
+version = "0.1.0"
+description = "Beat the Streak MLB hit probability predictor"
+authors = [{ name = "Fulcrum Data Labs" }]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "requests>=2.31",
+    "click>=8.1",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4", "pytest-cov>=4.0", "ruff>=0.1"]
+
+[project.scripts]
+bts = "bts.cli:main"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
