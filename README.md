@@ -304,11 +304,14 @@ library. No machine learning frameworks, no cloud dependencies, no paid APIs.
 
 ## Getting started
 
-### Install
+This repo is a monorepo containing the Python prediction engine (under
+`backend/`) and — soon — the Next.js web frontend (under `frontend/`).
+
+### Install the backend
 
 ```bash
 git clone https://github.com/pokey4680/HitPicks.git
-cd HitPicks
+cd HitPicks/backend
 python -m venv .venv
 source .venv/bin/activate
 pip install -e .
